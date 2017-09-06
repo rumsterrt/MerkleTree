@@ -4,6 +4,7 @@ body {
     background-image: linear-gradient(to bottom, #315481, #918e82 100%);
     background-attachment: fixed;
 
+    height: 100%;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -16,17 +17,23 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
-    min-height: 100%;
-    background: white;
+    height: 100%;
+}
+
+#wrapper{
+    max-height: 70vh;
+    margin: 0 auto;
+    max-width: 100%;
+    overflow: hidden;
+    background: yellow;
 }
 
 header {
     background: #d2edf4;
     background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
     padding: 20px 15px 15px 15px;
-    position: relative;
 }
 
 #login-buttons {
@@ -44,10 +51,9 @@ h1 {
 form {
     margin-top: 10px;
     margin-bottom: -10px;
-    position: relative;
 }
 
-.new-task input {
+.treefield input {
     box-sizing: border-box;
     padding: 10px 0;
     background: transparent;
@@ -57,14 +63,28 @@ form {
     font-size: 1em;
 }
 
-.new-task input:focus{
+.treefield input:focus{
+    outline: 0;
+}
+
+.treeblock input {
+    box-sizing: border-box;
+    padding: 10px 0;
+    background: transparent;
+    border: none;
+    width: 100%;
+    padding-right: 80px;
+    font-size: 1em;
+}
+
+.treeblock input:focus{
     outline: 0;
 }
 
 ul {
     margin: 0;
     padding: 0;
-    background: white;
+    background: green;
 }
 
 .delete {
