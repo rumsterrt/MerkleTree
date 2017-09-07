@@ -2,14 +2,17 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { createContainer } from 'meteor/react-meteor-data';
 
-import MercleTree from './MercleTree.jsx';
+import MercleTree from '../api/MercleTree.jsx';
+import MercleTreeUI from '../ui/MercleTreeUI.jsx';
 
 // App component - represents the whole app
-const Tree = new MercleTree.constructor();
+const Tree = new MercleTreeUI.constructor();
 
 class App extends Component {
     constructor(props){
         super(props);
+
+        this.treeData = null;
     }
 
     handleSubmit(event) {
@@ -21,8 +24,7 @@ class App extends Component {
 
         console.log(text+"\n"+size);
 
-        this.refs.tree.textData= text;
-        this.refs.tree.blockSize= size;
+        this.treeData = new MercleTree(text,size);
 
         this.forceUpdate();
     }
@@ -51,7 +53,7 @@ class App extends Component {
                             </button>
                         </header>
                         <ul>
-                            <MercleTree ref="tree" key={this.props.tree._id} mercleTree={this.props.tree}/>;
+                            <MercleTreeUI ref="tree" key={this.props.tree._id} mercleTree={this.props.tree} treeData={this.treeData} radius ={25} xDistance={25*1.5} yDistance={25*5}/>;
                         </ul>
                     </div>
                 </ul>
